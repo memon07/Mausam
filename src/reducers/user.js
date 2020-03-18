@@ -8,6 +8,9 @@ export default function (state = initialState,action) {
         case ActionType.USER_FETCH_DATA:
             return {...state, payload: action.payload}
         
+        case ActionType.POST_REGISTER:
+            return {...state, payload: action.payload}
+        
         default:
             return state
     }

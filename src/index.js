@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
-import App from './components/App';
-// import { HashRouter } from 'react-router-dom'
+import Signup from './components/Signup';
 import createStore from '../src/store/createStore'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -17,7 +17,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route path="/" exact component={App} />
+          <Route path="/" exact component={Signup} />
         </Switch>
       </Router>
     </Provider>,
