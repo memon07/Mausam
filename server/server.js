@@ -18,6 +18,7 @@ app.use(bodyParser.json());                                     // parse applica
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 
 require('./routes/user.js')(app);
+require('./routes/login.js')(app);
 
 app.get('/', (req,res)=>{
     res.json('mausam api loaded sucessfully')

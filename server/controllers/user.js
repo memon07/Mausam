@@ -6,8 +6,16 @@ exports.create = (req, res) => {
     var data = req.body;
     usersRef.add(data)
         .then(function (userRef) {
-            console.log("User Saved with ID: ", userRef.id);
-            res.json({ message: "Success: User Saved with ID: "+userRef.id});
+            usersRef.doc(userRef.id).get().then((user) => {
+                if (user.exists) {
+                    console.log("User Saved with ID: ", userRef.id);
+                    res.json(user.data());
+                } else {
+                    res.status(404).send({
+                        message: "User not found with Id: " + req.params.uid
+                    });
+                }
+            })
         })
         .catch(function (error) {
             console.error("Error adding user: ", error);

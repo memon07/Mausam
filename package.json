@@ -9,6 +9,8 @@
     "antd": "^3.24.3",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "firebase": "^7.11.0",
+    "history": "^4.10.1",
     "immutable": "^4.0.0-rc.12",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

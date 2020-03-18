@@ -2,6 +2,8 @@ import React , {Component} from 'react'
 import { connect } from 'react-redux'
 import { Form,Input, Button } from 'antd'
 import weatherLogo from '../images/cloudy.svg'
+import { Link } from 'react-router-dom'
+import '../css/SignupForm.css'
 
 import config from '../config'
 
@@ -25,12 +27,15 @@ class SignupForm extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         let data = {
-          "first_name":values.name,
+          "username":values.username,
           "password":values.password,
+          "email":values.email
         }
         console.log(data)
-        let url = `${config.api}/v2/users/register`;
+        // let url = `${config.api}/user`;
+        let url = `http://localhost:8000/api/user`
         const { postData } = this.props;
+        console.log('url',url)
         postData(url,data);
         this.props.form.resetFields()
       }
@@ -45,7 +50,7 @@ class SignupForm extends Component {
 
   render(){
 
-    const { getFieldDecorator  } = this.props.form;
+    const { getFieldDecorator } = this.props.form;
     const FormItem = Form.Item;
 
     return (
@@ -56,8 +61,8 @@ class SignupForm extends Component {
         </div>
         <Form onSubmit={this.handleSubmit} className="signup-form">
           
-              <FormItem>
-                {getFieldDecorator('name', {
+              <FormItem label="User name">
+                {getFieldDecorator('username', {
                   rules: [
                     {required: true, message: 'Please provide your name.'},
                     {max:25}
@@ -71,8 +76,24 @@ class SignupForm extends Component {
                   )}
               </FormItem>
 
+              <FormItem label="Email id">
+                {getFieldDecorator('email', {
+                  rules: [
+                    {type: 'email', message: 'Enter a valid e-mail id!',}, 
+                    {required: true, message: 'Please provide your e-mail id.',},
+                    {max:50},
+                  ],
+                })(
+                  <Input
+                    placeholder='Enter your email id'
+                    size='large'
+                    className='mb-3'
+                  />
+                )}
+              </FormItem>
 
-              <FormItem>
+
+              <FormItem label="Password">
                 {getFieldDecorator('password', {
                   rules: [{
                     required: true, message: 'Please provide your password.',
@@ -88,6 +109,11 @@ class SignupForm extends Component {
 
               <Button size='large' className='signup-btn mb-4'  htmlType="submit">Create Account</Button>
         </Form>
+        <div className="mt-1">
+          <Link to='/login'>
+            <li className="signup-login__li">Already an account ? Login</li>
+          </Link>
+        </div>
       </>
     )
   }

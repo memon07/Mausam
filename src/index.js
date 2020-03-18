@@ -4,9 +4,16 @@ import { Provider } from 'react-redux'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
-import Signup from './components/Signup';
 import createStore from '../src/store/createStore'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { Router } from 'react-router'
+// import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
+import history from './history'
+
+
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -15,9 +22,11 @@ const store = createStore();
 
 ReactDOM.render(
     <Provider store={store}>
-      <Router>
+      <Router history={history}>
         <Switch>
-          <Route path="/" exact component={Signup} />
+          <Route exact path="/"  component={Signup} />
+          <Route exact path="/login"  component={Login} />
+          <Route exact path="/dashboard"  component={Dashboard} />
         </Switch>
       </Router>
     </Provider>,
