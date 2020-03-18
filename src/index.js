@@ -4,8 +4,9 @@ import { Provider } from 'react-redux'
 
 import './index.css';
 import App from './components/App';
-import { HashRouter } from 'react-router-dom'
+// import { HashRouter } from 'react-router-dom'
 import createStore from '../src/store/createStore'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -14,9 +15,11 @@ const store = createStore();
 
 ReactDOM.render(
     <Provider store={store}>
-      <HashRouter>
-        <App />
-      </HashRouter>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={App} />
+        </Switch>
+      </Router>
     </Provider>,
     document.getElementById('root')
 );
