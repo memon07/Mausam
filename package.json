@@ -13,6 +13,7 @@
     "history": "^4.10.1",
     "immutable": "^4.0.0-rc.12",
     "react": "^16.13.0",
+    "react-autocomplete": "^1.8.1",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
