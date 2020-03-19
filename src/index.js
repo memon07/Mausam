@@ -13,7 +13,8 @@ import history from './history'
 
 import Signup from './components/Signup';
 import Login from './components/Login';
-import HomeHOC from './components/HomeHOC'
+import HomeHOC from './components/HomeHOC';
+import HistoryHOC from './components/HistoryHOC';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -27,6 +28,7 @@ ReactDOM.render(
           <Route exact path="/"  component={Signup} />
           <Route exact path="/login"  component={Login} />
           <Route exact path='/dashboard' component={HomeHOC} />
+          <Route exact path='/history' component={HistoryHOC} />
         </Switch>
       </Router>
     </Provider>,

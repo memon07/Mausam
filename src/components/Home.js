@@ -1,4 +1,4 @@
-import React , { useState ,useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import {Button } from 'antd'
 
@@ -9,7 +9,6 @@ import '../css/Home.css'
 
 function Home(props) {
 
-    const [value, setValue] = useState('');
 
     // if(props.user === null || props.user === 'undefined'){
     //     return <>

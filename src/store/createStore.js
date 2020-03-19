@@ -44,7 +44,7 @@ function immutableChildren (obj) {
   return state
 }
 
-export default (initialState = {}, context) => {
+export default (initialState = {}) => {
   const middlewares = createMiddlewares()
   const state = immutableChildren(initialState)
 

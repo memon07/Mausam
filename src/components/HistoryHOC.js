@@ -3,14 +3,13 @@ import { Drawer, Button, Menu } from 'antd';
 import { Link, Route ,BrowserRouter as Router ,Switch } from 'react-router-dom'
 import history from '../history'
 
-
 import '../css/Dashboard.css'
 import menu from '../images/menu.svg'
 
-import Home from '../components/Home'
+import History from '../components/History'
 
 
-function HomeHOC() {
+function HistoryHOC() {
     const SubMenu = Menu.SubMenu;
     const MenuItemGroup = Menu.ItemGroup;
 
@@ -32,7 +31,7 @@ function HomeHOC() {
             <img src={menu} className="drawer-menu__img" onClick={showDrawer}  height="50px" alt="menu"/>
         </div>
         <div className="dashboard-body">
-            <Home/>
+            <History/>
         </div>
         <Drawer
           title="Mausam"
@@ -71,4 +70,4 @@ function HomeHOC() {
     )
 }
 
-export default HomeHOC
+export default HistoryHOC
