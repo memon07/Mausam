@@ -1,22 +1,17 @@
-import React , {useState, useEffect} from 'react'
-import { connect } from 'react-redux'
+import React , {useState} from 'react'
 import { Drawer, Button, Menu } from 'antd';
 import { Link, Route ,BrowserRouter as Router ,Switch } from 'react-router-dom'
 
 import '../css/Dashboard.css'
 import menu from '../images/menu.svg'
 
-import History from '../components/History'
 import Home from '../components/Home'
 
 
-function Dashboard(user) {
+function HomeHOC() {
     const SubMenu = Menu.SubMenu;
     const MenuItemGroup = Menu.ItemGroup;
 
-    useEffect(()=>{
-        // history.push('/dashboard/home');
-    },[])
 
     const [visible,setVisible] = useState(false)
 
@@ -28,7 +23,6 @@ function Dashboard(user) {
       setVisible(false)
     };
 
-    console.log(user.user)
     return (
         <>
         <Router>
@@ -36,8 +30,7 @@ function Dashboard(user) {
             <img src={menu} className="drawer-menu__img" onClick={showDrawer}  height="50px" alt="menu"/>
         </div>
         <div className="dashboard-body">
-                <Route  path='/dashboard/home' component={Home} />
-                <Route  path='/dashboard/history' component={History} />
+            <Home/>
         </div>
         <Drawer
           title="Mausam"
@@ -56,7 +49,7 @@ function Dashboard(user) {
                             <Link to='/dashboard/home' onClick={onClose}>Home</Link>
                         </Menu.Item>
                         <Menu.Item key="2">
-                            <Link to='/dashboard/history' onClick={onClose}>Histroy</Link>
+                            <Link to='/history'>Histroy</Link>
                         </Menu.Item>
                     </MenuItemGroup>
                 </Menu>
@@ -66,10 +59,4 @@ function Dashboard(user) {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        user : state.user
-    }
-}
-
-export default connect(mapStateToProps, null)(Dashboard)
+export default HomeHOC

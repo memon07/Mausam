@@ -3,7 +3,7 @@ import * as actionTypes from '../actionTypes/user'
 
 import { myFirebase } from "../firebase"
 import history from "../history"
-import { success ,error} from '../components/message'
+import { success ,errorMsg} from '../components/message'
 
 export function getUserData(data) {
     return (dispatch) => {
@@ -22,7 +22,7 @@ export function getUserData(data) {
               isAnonymous: user.user.isAnonymous,
               isAuth:true
             }
-            console.log('action data XX', dispatchData)
+            // console.log('action data XX', dispatchData)
 
             // axios.get(url,{params: {
             //   uid: user.user.uid
@@ -45,7 +45,7 @@ export function getUserData(data) {
             history.push('/dashboard');
           })
           .catch(error => {
-            // error(error)
+            errorMsg(error.message)
             console.log(error)
           });
     }
@@ -67,6 +67,7 @@ export function postRegister(url,data) {
             if(user.user.uid){
               dispatch(actionTypes.postRegister(dispatchData))
               success('Profile has been created !!')
+              history.push('/dashboard');
             }
           })
           .catch(function(error) {
