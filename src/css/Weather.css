@@ -2,3 +2,13 @@
     font-size: 34px;
     margin-right: 10px;
 }
+
+.cord-div {
+    font-size: 17px;
+    padding-top: 20px;
+}
+
+.img-div {
+    display: flex;
+    align-items: baseline;
+}

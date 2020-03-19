@@ -1,4 +1,6 @@
 import React , { Component } from 'react'
+import { connect } from 'react-redux'
+
 import ReactAutocomplete from 'react-autocomplete'
 import { Button } from 'antd'
 import axios from 'axios'
@@ -6,13 +8,19 @@ import axios from 'axios'
 import cities from './city.json'
 import '../css/Weather.css'
 
+import humidity from '../images/humidity.svg'
+import wind from '../images/wind.svg'
+
+import { postWeather } from '../actions/weather'
+
 class Weather extends Component {
 
     constructor (props) {
       super(props)
       this.state = {
         value: '',
-        weather: ''
+        weather: '',
+        weatherArray: []
       }
     }
 
@@ -24,9 +32,11 @@ class Weather extends Component {
             this.setState(
               {weather : response.data}
               )
-              // this.setState({
-              //   weather: [...this.state.weather, response.data]
-              // })
+              this.setState({
+                weatherArray: [...this.state.weatherArray, response.data]
+              })
+              const { saveWeather } = this.props;
+              saveWeather(this.state.weatherArray);
 
               console.log('...',this.state.weather)
         }).catch((error)=> {
@@ -69,6 +79,14 @@ class Weather extends Component {
               <h4>
                 {this.state.weather ?this.state.weather.weather[0].description : ''}
               </h4>
+
+              <h5 className="cord-div">Co-oridinates  [ lon : {this.state.weather.coord.lon} , lat : {this.state.weather.coord.lon} ]</h5>
+              <h5 className="img-div">
+                <img src={humidity} height="30" className="pt-2 mr-2" alt="humidity"/> {this.state.weather.main.humidity}
+              </h5>
+              <h5 className="img-div">
+                <img src={wind} height="30" className="pt-2 mr-2" alt="wind"/> {this.state.weather.wind.speed}
+              </h5>
             </div>
             :''}
           </div>
@@ -77,4 +95,10 @@ class Weather extends Component {
     }
   }
 
-  export default Weather
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      saveWeather: (data) => dispatch(postWeather(data))
+    }
+  }
+
+  export default connect(null, mapDispatchToProps)(Weather)
