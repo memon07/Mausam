@@ -1,6 +1,15 @@
 
 # Mausam - weather app
 
+```
+routes in the project
+-------------------------------
+\  - signup page
+\login - login page
+\dashboard - main module page
+\history - history page
+```
+
 ### Available Scripts
 
 ## Front end

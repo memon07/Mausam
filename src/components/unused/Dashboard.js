@@ -6,8 +6,8 @@ import { Link, Route ,BrowserRouter as Router ,Switch } from 'react-router-dom'
 import '../css/Dashboard.css'
 import menu from '../images/menu.svg'
 
-import History from '../components/History'
-import Home from '../components/Home'
+import History from '../History'
+import Home from '../Home'
 
 
 function Dashboard(user) {

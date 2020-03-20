@@ -11,19 +11,19 @@ import wind from '../images/wind.svg'
 function History(props) {
 
 
-    // if(props.user === null || props.user === 'undefined'){
-    //     return <>
-    //         <div className="container">
-    //             <div className="row">
-    //                 <div className="col-12 pt-4 text-center">
-    //                     <h3 className="text-center">Please login to access our module</h3>
-    //                     <Button onClick={() => {history.push("/login")}}>
-    //                         Login in</Button>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </>
-    // }
+    if(props.user === null || props.user === 'undefined'){
+        return <>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 pt-4 text-center">
+                        <h3 className="text-center">Please login to access our module</h3>
+                        <Button onClick={() => {history.push("/login")}}>
+                            Login in</Button>
+                    </div>
+                </div>
+            </div>
+        </>
+    }
     return (
         <div className="container">
             <div className="row">
