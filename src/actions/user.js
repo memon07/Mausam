@@ -22,26 +22,9 @@ export function getUserData(data) {
               isAnonymous: user.user.isAnonymous,
               isAuth:true
             }
-            // console.log('action data XX', dispatchData)
-
-            // axios.get(url,{params: {
-            //   uid: user.user.uid
-            //   }})
-            // .then(function (response) {
-            //   if(response.data && response.status === 200 ){
-            //     console.log('data in get ',response)
-            //     let dispatchData = {
-            //         'email' : response.data.email,
-            //         'password' :response.data.password,
-            //     }
-            //     // dispatch(actionTypes.fetchUserData(dispatchData))
-            //   }
-            // })
-            // .catch(function (error) {
-            //   return Promise.reject(error);
-            // });
 
             dispatch(actionTypes.fetchUserData(dispatchData));
+            success('Sucessfully logged in')
             history.push('/dashboard');
           })
           .catch(error => {

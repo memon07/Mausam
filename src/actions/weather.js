@@ -1,5 +1,4 @@
 import * as actionTypes from '../actionTypes/weather'
-import { success ,errorMsg} from '../components/message'
 
 export function postWeather(data) {
     return (dispatch) => {
