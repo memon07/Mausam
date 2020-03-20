@@ -3,7 +3,7 @@ import { Drawer, Button, Menu } from 'antd';
 import { Link, Route ,BrowserRouter as Router ,Switch } from 'react-router-dom'
 import history from '../history'
 
-import '../css/Dashboard.css'
+import '../css/History.css'
 import menu from '../images/menu.svg'
 
 import History from '../components/History'
@@ -41,7 +41,7 @@ function HistoryHOC() {
           visible={visible}
         >
           <Menu
-                defaultSelectedKeys={['1']}
+                // defaultSelectedKeys={['1']}
                 defaultOpenKeys={['sub1']}
                 mode="inline"
                 >
@@ -63,6 +63,18 @@ function HistoryHOC() {
                             </Link>
                         </Menu.Item>
                     </MenuItemGroup>
+                    <div className="side-navigation__signin">
+                        <Link onClick={() => {
+                                history.push("/login")
+                                }}>
+                            <Button className="mr-3">Login</Button> 
+                        </Link>
+                        <Link onClick={() => {
+                                history.push("/")
+                                }}>
+                            <Button>Signin</Button>
+                        </Link>
+                    </div>
                 </Menu>
         </Drawer>
         </Router>

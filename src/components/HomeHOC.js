@@ -4,7 +4,7 @@ import { Link, Route ,BrowserRouter as Router ,Switch } from 'react-router-dom'
 import history from '../history'
 
 
-import '../css/Dashboard.css'
+import '../css/Home.css'
 import menu from '../images/menu.svg'
 
 import Home from '../components/Home'
@@ -42,7 +42,7 @@ function HomeHOC() {
           visible={visible}
         >
           <Menu
-                defaultSelectedKeys={['1']}
+                // defaultSelectedKeys={['1']}
                 defaultOpenKeys={['sub1']}
                 mode="inline"
                 >
@@ -64,6 +64,18 @@ function HomeHOC() {
                             </Link>
                         </Menu.Item>
                     </MenuItemGroup>
+                    <div className="side-navigation__signin">
+                        <Link onClick={() => {
+                                history.push("/login")
+                                }}>
+                            <Button className="mr-3">Login</Button> 
+                        </Link>
+                        <Link onClick={() => {
+                                history.push("/")
+                                }}>
+                            <Button>Signin</Button>
+                        </Link>
+                    </div>
                 </Menu>
         </Drawer>
         </Router>

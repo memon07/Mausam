@@ -76,7 +76,7 @@ class LoginForm extends Component {
         </Form>
         <div className="mt-4">
           <Link to='/'>
-            <li className="login-login__li">create a new account ? Login</li>
+            <li className="login-login__li">create a new account ? Signup</li>
           </Link>
         </div>
       </>

@@ -1,16 +1,20 @@
 import React from 'react'
 import ConnectedLogin from '../form/LoginForm'
+import '../css/Login.css'
 
 function Login () {
   return (
     <>
-        <div className="container">
-        <div className="row">
-          <div className="offset-md-4 col-md-4 col-12 signup-box">
+        <div className="row ">
+          <div className="col-lg-4 col-12">
+            <div className="container login-box">
+
             <ConnectedLogin/>
+            </div>
+          </div>
+          <div className="col-lg-8 d-none d-lg-block login-bg">
           </div>
         </div>
-      </div> 
     </>
   )
 }

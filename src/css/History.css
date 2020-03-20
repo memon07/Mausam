@@ -4,3 +4,29 @@
     padding: 20px;
     background-color: #fff7eb;
 }
+
+.side-navigation__signin {
+    position: absolute;
+    bottom: 10px;
+}
+
+.dashboard-header {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    background-color: #FFF;
+    border-bottom: 1px solid #EBEBEB;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.04);
+    height: 55px;
+}
+
+.drawer-menu__img{
+    cursor: pointer;
+    padding: 15px;
+}
+
+.dashboard-body {
+    padding-top: 60px;
+}
